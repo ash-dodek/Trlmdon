@@ -72,7 +72,9 @@ class moderation(commands.Cog):
             await ctx.send(embed=resEmbed)
 
 
-
+        # else:
+        #     embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
+        #     await ctx.send(embed=embed)
 
 #ERRORS---------------------------------------------------------------------
     @kick.error

