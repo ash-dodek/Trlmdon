@@ -3,7 +3,7 @@ import random
 import os
 from discord.ext import commands, tasks
 from dotenv import load_dotenv
-from webserver import keep_alive
+# from webserver import keep_alive
 
 client = commands.Bot(command_prefix ="=")
 load_dotenv()
@@ -96,7 +96,6 @@ async def details(ctx):
 
 
 
-keep_alive()
 
 client.run(TOKEN)
 
