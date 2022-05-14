@@ -14,6 +14,8 @@ async def on_ready():
     await client.change_presence(status="hi")
     print('bot ready')
 
+client.remove_command('help')
+
 # @client.event
 # async def on_message(message):
 #     await message.send("hi")
