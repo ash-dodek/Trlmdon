@@ -13,11 +13,13 @@ class misc(commands.Cog):
     
     @commands.Cog.listener()
     async def on_message(self,message):
-        if message.author.id != 850655066725154856:
+        if message.author.id != 972809081893060658:
             if "randi" in message.content:
                 await message.reply("https://tenor.com/view/teri-ma-teri-maa-funny-funny-insult-salman-gif-21959029")
+                return 
             elif "didnt ask" or "didn't ask" in message.content:
                 await message.reply("https://media.discordapp.net/attachments/837372789975285780/974667093251330168/IMG_0714.jpg")
+                return
             # elif  in message.content:
             #     await message.reply("https://media.discordapp.net/attachments/837372789975285780/974667093251330168/IMG_0714.jpg")
         
