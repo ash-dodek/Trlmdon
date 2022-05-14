@@ -11,7 +11,7 @@ class misc(commands.Cog):
     async def on_ready(self):
         print("=>Loaded misc") 
     
-    @commands.Cog.listener(case_insensitive=True)
+    @commands.Cog.listener()
     async def on_message(self,message):
         if message.author.id != 972809081893060658:
             if "randi" in message.content:
@@ -32,13 +32,13 @@ class misc(commands.Cog):
             # print("")
 
 
-    @commands.command(case_insensitive=True)
+    @commands.command()
     @commands.has_permissions(ban_members = True)
     async def purge(self,ctx,amount:int):
         await ctx.channel.purge(limit=amount)
 
     
-    @commands.command(case_insensitive=True)
+    @commands.command()
     async def embed(self,ctx):
         myEmbed = discord.Embed(title="Embed title", description="description of the embed",color=0x5b5bfc)
         await ctx.send(embed=myEmbed)
