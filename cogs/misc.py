@@ -17,7 +17,10 @@ class misc(commands.Cog):
             if "randi" in message.content:
                 await message.reply("https://tenor.com/view/teri-ma-teri-maa-funny-funny-insult-salman-gif-21959029")
                 return 
-            elif "didnt ask" or "didn't ask" in message.content:
+            elif "didnt ask" in message.content:
+                await message.reply("https://media.discordapp.net/attachments/837372789975285780/974667093251330168/IMG_0714.jpg")
+                return
+            elif "didn't ask" in message.content:
                 await message.reply("https://media.discordapp.net/attachments/837372789975285780/974667093251330168/IMG_0714.jpg")
                 return
             # elif  in message.content:
