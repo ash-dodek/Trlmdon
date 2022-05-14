@@ -19,7 +19,7 @@ class moderation(commands.Cog):
             permEm = discord.Embed(description="You don't have enough permission execute that command :x:")
             await ctx.send(embed=permEm)
 
-    @commands.command()
+    @commands.command(case_insensitive=True)
     @commands.has_permissions(ban_members = True)
     async def kick(self,ctx, member:commands.MemberConverter,*, reason=None):
         kickEmbed = discord.Embed(title="You got kicked.",description=f"You were **kicked** from {member.guild.name}\n**Reason**: {reason}",color=0x00ffea)
@@ -32,7 +32,7 @@ class moderation(commands.Cog):
 
 
     
-    @commands.command()
+    @commands.command(case_insensitive=True)
     @commands.has_permissions(ban_members = True)
     async def ban(self,ctx, member:commands.MemberConverter,*, reason=None):
         banEmbed = discord.Embed(description=f"**Successfully banned** {member.mention}\n**Reason:** {reason}",color=0xfff700)
@@ -45,7 +45,7 @@ class moderation(commands.Cog):
 
 
 
-    @commands.command()
+    @commands.command(case_insensitive=True)
     @commands.has_permissions(ban_members = True)
     async def unban(self,ctx,*, member:discord.User):
         banned_users = await ctx.guild.bans()
@@ -57,7 +57,7 @@ class moderation(commands.Cog):
             await ctx.guild.unban(member)
             return
 
-    @commands.command()
+    @commands.command(case_insensitive=True)
     @commands.has_permissions(ban_members=True)
     async def warn(self,ctx, member:commands.MemberConverter,*,reason):
         if reason != "":

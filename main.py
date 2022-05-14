@@ -21,7 +21,7 @@ client.remove_command('help')
 #     await message.send("hi")
 
 
-@client.command()
+@client.command(case_insensitive=True)
 async def ask(ctx, *, question):
     responses = ["It is certain.",
                  "It is decidedly so.",
@@ -57,7 +57,7 @@ async def ask(ctx, *, question):
 #     if isinstance(error, commands.MissingRequiredArgument):
 #         await ctx.send("Please mention the user")
 
-@client.command()
+@client.command(case_insensitive=True)
 
 async def load(ctx, extension):
     if ctx.author.id == 805393631409340446:
@@ -65,7 +65,7 @@ async def load(ctx, extension):
         await ctx.send(f"Loaded {extension}")
     
 
-@client.command()
+@client.command(case_insensitive=True)
 async def unload(ctx, extension):
     if ctx.author.id == 805393631409340446:
         client.unload_extension(f"cogs.{extension}")
@@ -76,14 +76,14 @@ for filename in os.listdir("./cogs"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
 
-@client.command()
+@client.command(case_insensitive=True)
 async def reload(ctx, extension):
     if ctx.author.id == 805393631409340446:
         client.unload_extension(f"cogs.{extension}")
         client.load_extension(f"cogs.{extension}")
         await ctx.send(f"Reloaded {extension}")
 
-@client.command()
+@client.command(case_insensitive=True)
 async def details(ctx):    
     # user = 805393631409340446
     if ctx.author.id == 805393631409340446:
