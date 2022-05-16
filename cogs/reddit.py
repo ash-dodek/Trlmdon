@@ -27,7 +27,7 @@ class reddit(commands.Cog):
             f.write(g.content)
         os.system("ffmpeg -i video.mp4 -i audio.mp3 -c copy output.mp4")
         # file = discord.File("misc.py", filename="misc.py")
-        await ctx.send(file=discord.File("audio.mp3"))
+        await ctx.send(file=discord.File("output.mp3"))
         os.remove("audio.mp3")
         os.remove("video.mp4")
         os.remove("output.mp4")
