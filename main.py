@@ -4,8 +4,9 @@ import os
 from discord.ext import commands, tasks
 from dotenv import load_dotenv
 # from webserver import keep_alive
+intents = discord.Intents.all()
 
-client = commands.Bot(command_prefix ="=")
+client = commands.Bot(command_prefix ="=",intents=intents)
 load_dotenv()
 TOKEN = os.getenv("TRLMDON")
 
@@ -13,6 +14,19 @@ TOKEN = os.getenv("TRLMDON")
 async def on_ready():
     await client.change_presence(status="hi")
     print('bot ready')
+
+@client.event
+async def on_member_join(member):
+    # ctx.channel = get(ctx.member.guild.channels, id=90)
+    channel = discord.utils.get(member.guild.channels, name="general")
+
+    # ctx.channel = 845980727090479105
+    channel = client.get_channel(845980727090479105)
+
+    embed = discord.Embed(color=0x4a3d9a)
+    embed.add_field(name="Welcome", value=f"{member.mention} has joined {member.guild.name}", inline=False)
+    embed.set_image(url="https://newgitlab.elaztek.com/NewHorizon-Development/discord-bots/Leha/-/raw/master/res/welcome.gif")
+    await channel.send( embed=embed)
 
 client.remove_command('help')
 

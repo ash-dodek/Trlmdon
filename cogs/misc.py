@@ -42,7 +42,19 @@ class misc(commands.Cog):
     async def embed(self,ctx):
         myEmbed = discord.Embed(title="Embed title", description="description of the embed",color=0x5b5bfc)
         await ctx.send(embed=myEmbed)
+    
+    @commands.command()
+    # async def hello(ctx):
+    async def save(self,ctx):
+        attachment = ctx.message.attachments[0] # gets first attachment that user
+        url = attachment.url                                        # sent along with command
+        # print(attachment.url)
+        await ctx.send(f"`{url}`")
 
+
+    # @commands.Cog.listener()
+    
+        # await channel.send("join")
 
 def setup(client):
     client.add_cog(misc(client))
