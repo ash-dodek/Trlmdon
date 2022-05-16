@@ -12,9 +12,11 @@ class reddit(commands.Cog):
     
     @commands.command()
     async def reddit(self,ctx,*,url):
+        os.remove("audio.mp3")
+        os.remove("video.mp4")
+        os.remove("output.mp4")
         url = url[:-1]+".json"
         # title = random_post["data"]["title"]
-
         r = requests.get(url,headers={"User-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36"})
         data = r.json()[0]
         video_url = data["data"]['children'][0]['data']['secure_media']['reddit_video']['fallback_url']
