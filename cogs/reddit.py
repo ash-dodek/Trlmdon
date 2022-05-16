@@ -68,12 +68,14 @@ class reddit(commands.Cog):
         if fSize>7800000: 
             # print("")
             # await ctx.send("compressing")
-            compress_video("output.mp4","output_compressed.mp4")
-            await ctx.send(file=discord.File("output_compressed.mp4"))
-            os.remove("output.mp4")
-            os.remove("audio.mp3")
-            os.remove("video.mp4")
-            os.remove("output_compressed.mp4")
+            # compress_video("output.mp4","output_compressed.mp4")
+            # await ctx.send(file=discord.File("output_compressed.mp4"))
+            # os.remove("output.mp4")
+            # os.remove("audio.mp3")
+            # os.remove("video.mp4")
+            # os.remove("output_compressed.mp4")
+            user = ctx.autor
+            await user.reply("Sorry to say but, the post you requested becomes more than 8MB when downloaded, due to whihc it can't be uploaded\nSorry for the inconvenience but this will be fixed soon")
         else:
             await ctx.send(file=discord.File("output.mp4"))
             os.remove("output.mp4")
