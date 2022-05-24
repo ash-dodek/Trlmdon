@@ -13,7 +13,7 @@ load_dotenv()
 TOKEN = os.getenv("TRLMDON")
 
 async def scheduled_thing():
-    channel = client.get_channel(928206761545068587)
+    channel = client.get_channel(963423479653347369)
     timedEmbed = discord.Embed(title="Art-event",description=f"So, this is an announcement related to the art event which was started in Trlmdon.\nWe decided to keep only one winner for this event and that is <@703092079626158130>, he scored `12.86` upvotes on an average which is the highest, **CONGRATS NEKO**, I still can't believe he drew these\nYou get <@&978763960088141906>")
     timedEmbed.add_field(name="Runner Ups",value="Runner ups for this event are:\n=>**Riruru** > 8.5 Average upvotes\n=>**Sumanshi** > 8 average upvotes\n=>Atlast-Alviya, Rico, Nesky, INFINITY, Kiwi these guys posted only one drawing so no average for them\nOnce again, congrats neko :D and thanks for participating y'all")
     await channel.send("@everyone",embed=timedEmbed)
