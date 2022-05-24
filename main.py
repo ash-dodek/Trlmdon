@@ -1,5 +1,7 @@
 import discord
 import random
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
 import os
 from discord.ext import commands, tasks
 from dotenv import load_dotenv
@@ -10,10 +12,25 @@ client = commands.Bot(command_prefix ="=",intents=intents)
 load_dotenv()
 TOKEN = os.getenv("TRLMDON")
 
+async def scheduled_thing():
+    channel = client.get_channel(928206761545068587)
+    timedEmbed = discord.Embed(title="Art-event",description=f"So, this is an announcement related to the art event which was started in Trlmdon.\nWe decided to keep only one winner for this event and that is <@703092079626158130>, he scored `12.86` upvotes on an average which is the highest, **CONGRATS NEKO**, I still can't believe he drew these\nYou get <@&978763960088141906>")
+    timedEmbed.add_field(name="Runner Ups",value="Runner ups for this event are:\n=>**Riruru** > 8.5 Average upvotes\n=>**Sumanshi** > 8 average upvotes\n=>Atlast-Alviya, Rico, Nesky, INFINITY, Kiwi these guys posted only one drawing so no average for them\nOnce again, congrats neko :D and thanks for participating y'all")
+    await channel.send("@everyone",embed=timedEmbed)
+
 @client.event
 async def on_ready():
     await client.change_presence(status="hi")
     print('bot ready')
+
+    scheduler = AsyncIOScheduler()
+    scheduler.add_job(scheduled_thing, CronTrigger(hour=9,minute=30,second=0)) 
+    scheduler.start()
+
+@client.event
+async def on_message(message):
+    message. content = message. content. lower()
+    await client.process_commands(message)
 
 @client.event
 async def on_member_join(member):
